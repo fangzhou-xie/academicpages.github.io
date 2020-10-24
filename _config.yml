@@ -14,7 +14,7 @@ description              : &description "Fangzhou Xie"
 url                      : "https://fangzhou-xie.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "fangzhou-xie.github.io"
-teaser                   :  "avatar.PNG" # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
+teaser                   : #"avatar.PNG" # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
 future                   : true
@@ -82,12 +82,12 @@ analytics:
 author:
   name             : "Fangzhou Xie"
   avatar           : "avatar.PNG"
-  bio              : "A Ph.D. student in Economics at the Econ Dept in Rutgers University"
+  bio              : "Econ Ph.D. student at Rutgers University"
   location         : "New Brunswick, NJ"
   employer         :
   # pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?user=C-hmMSMAAAAJ&hl=en"
-  email            : "firstname [dot] lastname [at] rutgers [dot] edu"
+  email            : "FIRST [dot] LAST [at]rutgers.edu"
   # researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -255,7 +255,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/New_York # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
