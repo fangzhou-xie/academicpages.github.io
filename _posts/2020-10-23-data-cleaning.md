@@ -6,6 +6,7 @@ tags:
   - Econometrics
   - Data Cleaning
   # - category2
+comments: true
 ---
 
 Here is the first blog on data cleaning.
