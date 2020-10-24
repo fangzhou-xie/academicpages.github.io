@@ -193,7 +193,7 @@ collections:
 
 
 # Defaults
-defaults:
+d
   # _posts
   - scope:
       path: ""
