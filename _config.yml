@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Fangzhou Xie"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "Fangzhou Xie"
 description              : &description "Fangzhou Xie"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Fangzhou Xie"
   avatar           : "avatar.PNG"
-  bio              : "Econ Ph.D. student at Rutgers University"
+  bio              : "Econ Ph.D. at Rutgers"
   location         : "New Brunswick, NJ"
   employer         :
   # pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
