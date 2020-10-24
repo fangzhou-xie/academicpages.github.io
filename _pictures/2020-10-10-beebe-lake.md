@@ -8,7 +8,5 @@ Some photos when hiking in Beebe Lake.
 
 <figure>
   <img src="/images/ithaca_beebelake.jpg">
-  <center>
-  <figcaption>Beebe Lake, Ithaca, NY.</figcaption>
-  </center>
+  <center><figcaption>Beebe Lake, Ithaca, NY.</figcaption></center>
 </figure>
