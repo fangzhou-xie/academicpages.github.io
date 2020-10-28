@@ -1,0 +1,123 @@
+---
+title: 'How to compile RMarkdown in Atom'
+date: 2020-10-28
+permalink: /posts/2020-10-27-testhtml/
+tags:
+  - Atom
+  - RMD
+comments: true
+published: true
+excerpt: Compile RMarkdown in Atom, not in RStudio
+output: html_document
+---
+
+I love Atom editor and I really wish I could do everything in Atom.
+
+Currently, I mainly work with Python, R, LaTeX and sometime RMarkdown
+and I haven't found *ANY* editor that could *EVERYTHING* in
+the best way. You might want to argue that different editors
+have their specific audiences and targeted languages in mind,
+and we shouldn't expect *One Editor to Rule Them ALL*.
+Alas, this is true. But since I have (finally) settled down
+to use Atom for my daily LaTeX writing
+(because of the snippets support and `sync-settings` package to
+synchronize Atom settings across machines),
+and I would like to use Atom for RMD writing as well.
+
+Now, can we `knit` RMD files within Atom editor,
+just like what we can achieve in RStudio,
+where you click the `knitr` button?
+
+This question has been puzzling me since I first knew RMD,
+and it seems that there hasn't been a mature solution to
+this problem. After some frustration, I could finally come up
+with my solution and it would worth putting it down
+so that it may help someone in the future.
+
+<!-- @xie2020 -->
+There are several packages to be used for this purpose:
+
+1. `language-markdown`
+2. `markdown-preview-enhanced`
+3. `language-r`
+4. `atom-shell-commands`
+
+Here the first package will enable language support for Markdown families,
+which includes RMarkdown. (Click: `control-shift-l` and choose `Markdown`
+from the dropdown list).
+
+The second package will generate a preview for your current markdown file.
+
+The third package will enable syntax hightlighting for `R`.
+Note that this package will throw an error whenever you opened up Atom,
+saying that there is duplicate keys. Since this package is no longer
+maintained, we cannot expect it to be updated so that
+this issue will go away automatically.
+Instead we need to manually modify the file
+`~/.atom/packages/language-r/snippets/language-r.cson`
+and change the following lines as shown:
+
+At line 14-19:
+
+```
+'Cummulative min':
+  'prefix': 'cumi'
+  'body': 'cummin(${1:x})'
+'Cummulative max':
+  'prefix': 'cuma'
+  'body': 'cummax(${1:x})'
+```
+
+At line 47-52:
+
+```
+'Grep':
+  'prefix': 'grep'
+  'body': 'grep(${1:pattern}, ${2:x}, ${3:ignore.case = ${4:FALSE}}, ${5:perl = ${6:FALSE}})'
+'Grep 2':
+  'prefix': 'grep2'
+  'body': 'grep(${1:pattern}, ${2:x}, ${3:ignore.case = ${4:FALSE}}, ${5:perl = ${6:FALSE}}, ${7:value = ${8:FALSE}}, ${9:fixed = ${10:TRUE}})'
+```
+
+This way, there is no duplicate keys error anymore.
+
+The fourth package is the crucial part.
+The first three packages are there because of aesthetic reasons,
+and you can live without them. But this fourth package
+is really the one that will allow us to compile the RMD file.
+Once you have installed this package, click Atom-Config (on macOS)
+or Edit-Config (on Ubuntu) and copy paste the following commands
+into the `config.cson` file.
+
+```
+"atom-shell-commands":
+  commands: [
+    {
+      arguments: [
+        "-e"
+        "rmarkdown::render('{FileName}')"
+      ]
+      command: "R"
+      name: "knitRmd"
+      options:
+        cwd: "{FileDir}"
+        keymap: "ctrl-2"
+        save: true
+    }
+  ]
+```
+
+Note that if you have R installed properly and `rmarkdown` package installed,
+this should work fine.
+The `command` field you should put the path for the R executables,
+and if you open up a terminal, type "R" and return and observe
+you are inside R environment, then you should be fine.
+Otherwise, change this path to the one that actually works for you.
+In `options`, you can also change the "keymap".
+The default is "ctrl-2", but you can change to whatever you like.
+Just to make sure that there is not conflict with other keymaps.
+
+Voila! Now you are done!
+
+You can try to click `ctrl-2` at your RMD file, and the output
+should be compiled in the same folder as your RMD file.

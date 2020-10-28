@@ -1,7 +1,7 @@
 ---
 title: 'Econometrics for Data Cleaning I'
 date: 2020-10-23
-permalink: /posts/2020/23/datacleaning/
+permalink: /posts/2020-23-datacleaning/
 tags:
   - Econometrics
   - Data Cleaning

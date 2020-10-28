@@ -1,0 +1,17 @@
+---
+title: 'test html'
+date: 2020-10-23
+permalink: /posts/2020-10-27-testhtml/
+tags:
+  - Econometrics
+  - Data Cleaning
+  # - category2
+comments: true
+published: false
+excerpt: display something useful here, maybe abstract
+output: html_document
+---
+
+something else here
+
+$\lambda$
