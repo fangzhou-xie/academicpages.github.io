@@ -187,6 +187,9 @@ collections:
   presentations:
     output: true
     permalink: /:collection/:path/
+  codes:
+    output: true
+    permalink: /:collection/:path/
   pictures:
     output: true
     permalink: /:collection/:path/
@@ -230,6 +233,7 @@ defaults:
       author_profile: true
       share: false
       comments: true
+      related: true
   # _proceedings
   - scope:
       path: ""
@@ -239,10 +243,19 @@ defaults:
       author_profile: true
       share: false
       comments: true
-  # _talks
+      related: true
+  # _presentations
   - scope:
       path: ""
       type: presentations
+    values:
+      layout: single
+      author_profile: true
+      share: false
+  # _codes
+  - scope:
+      path: ""
+      type: codes
     values:
       layout: single
       author_profile: true

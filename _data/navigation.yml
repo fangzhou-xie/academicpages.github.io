@@ -16,11 +16,11 @@ main:
   - title: "Teaching"
     url: /teaching/
 
-  # - title: "Portfolio"
-  #   url: /portfolio/
-
   - title: "Blog Posts"
     url: /posts/
+
+  - title: "Codes"
+    url: /codes/
 
   - title: "Pictures"
     url: /pictures/
