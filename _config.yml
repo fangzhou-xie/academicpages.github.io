@@ -298,9 +298,11 @@ whitelist:
   - jekyll-feed
   - jemoji
 
-name: PiggyBlog
-description: My Blog
-url: https://fangzhou-xie.github.io/posts/
+# gems:
+#   - jekyll-feed
+# name: PiggyBlog
+# description: My Blog
+# url: https://fangzhou-xie.github.io/posts/
 
 # Archives
 #  Type
