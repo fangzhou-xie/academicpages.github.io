@@ -1,6 +1,9 @@
 # main links links
 main:
 
+  - title: "Blog Posts"
+    url: /posts/
+
   - title: "CV"
     url: /cv/
 
@@ -15,9 +18,6 @@ main:
 
   - title: "Teaching"
     url: /teaching/
-
-  - title: "Blog Posts"
-    url: /posts/
 
   - title: "Codes"
     url: /codes/
