@@ -12,18 +12,6 @@ output: html_document
 bibliography:
   - "`r system('kpsewhich ~/Zotero/Library.bib', intern=TRUE)`"
 ---
----
-title: 'How to compile RMarkdown in Atom'
-date: 2020-10-28
-permalink: /posts/2020-10-27-testhtml/
-tags:
-  - Atom
-  - RMD
-comments: true
-published: true
-excerpt: Compile RMarkdown in Atom, not in RStudio
-output: html_document
----
 <!DOCTYPE html>
 
 <html>
@@ -449,8 +437,8 @@ summary {
 
 
 
-<!-- <!-- <h1 class="title toc-ignore">How to compile RMarkdown in Atom</h1> --> -->
-<!-- <!-- <h4 class="date">2020-10-28</h4> --> -->
+<!-- <h1 class="title toc-ignore">How to compile RMarkdown in Atom</h1> -->
+<!-- <h4 class="date">2020-10-28</h4> -->
 
 </div>
 
@@ -506,7 +494,7 @@ summary {
         save: true
     }
   ]</code></pre>
-<p>Note that if you have R installed properly and <code>rmarkdown</code> package installed, this should work fine. The <code>command</code> field you should put the path for the R executables, and if you open up a terminal, type “R” and return and observe you are inside R environment, then you should be fine. Otherwise, change this path to the one that actually works for you. In <code>options</code>, you can also change the “keymap”. The default is “ctrl-2”, but you can change to whatever you like. Just to make sure that there is not conflict with other keymaps.</p>
+<p>Note that if you have R installed properly and <code>rmarkdown</code> package installed, this should work fine. The <code>command</code> field you should put the path for the R executables, and if you open up a terminal, type “R” and return and observe you are inside R environment, then you should be fine. Otherwise, change this path to the one that actually works for you. In <code>options</code>, you can also change the “keymap.” The default is “ctrl-2,” but you can change to whatever you like. Just to make sure that there is not conflict with other keymaps.</p>
 <p>Voila! Now you are done!</p>
 <p>You can try to click <code>ctrl-2</code> at your RMD file, and the output should be compiled in the same folder as your RMD file.</p>
 
