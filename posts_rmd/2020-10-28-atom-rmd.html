@@ -430,7 +430,7 @@ summary {
 
 
 <p>I love Atom editor and I really wish I could do everything in Atom.</p>
-<p>Currently, I mainly work with Python, R, LaTeX and sometime RMarkdown and I haven’t found <strong>ANY</strong> editor that could <strong>EVERYTHING</strong> in the best way. You might want to argue that different editors have their specific audiences and targeted languages in mind, and we shouldn’t expect <em>One Editor to Rule Them ALL</em>. Alas, this is true. But since I have (finally) settled down to use Atom for my daily LaTeX writing (because of the snippets support and <code>sync-settings</code> package to synchronize Atom settings across machines), and I would like to use Atom for RMD writing as well.</p>
+<p>Currently, I mainly work with Python, R, LaTeX and sometime RMarkdown and I haven’t found <em>ANY</em> editor that could <em>EVERYTHING</em> in the best way. You might want to argue that different editors have their specific audiences and targeted languages in mind, and we shouldn’t expect <em>One Editor to Rule Them ALL</em>. Alas, this is true. But since I have (finally) settled down to use Atom for my daily LaTeX writing (because of the snippets support and <code>sync-settings</code> package to synchronize Atom settings across machines), and I would like to use Atom for RMD writing as well.</p>
 <p>Now, can we <code>knit</code> RMD files within Atom editor, just like what we can achieve in RStudio, where you click the <code>knitr</code> button?</p>
 <p>This question has been puzzling me since I first knew RMD, and it seems that there hasn’t been a mature solution to this problem. After some frustration, I could finally come up with my solution and it would worth putting it down so that it may help someone in the future.</p>
 <!-- @xie2020 -->
@@ -443,7 +443,41 @@ summary {
 </ol>
 <p>Here the first package will enable language support for Markdown families, which includes RMarkdown. (Click: <code>control-shift-l</code> and choose <code>Markdown</code> from the dropdown list).</p>
 <p>The second package will generate a preview for your current markdown file.</p>
-<p>The third package will enable syntax hightlighting for <code>R</code>.</p>
+<p>The third package will enable syntax hightlighting for <code>R</code>. Note that this package will throw an error whenever you opened up Atom, saying that there is duplicate keys. Since this package is no longer maintained, we cannot expect it to be updated so that this issue will go away automatically. Instead we need to manually modify the file <code>~/.atom/packages/language-r/snippets/language-r.cson</code> and change the following lines as shown:</p>
+<p>At line 14-19:</p>
+<pre><code>&#39;Cummulative min&#39;:
+  &#39;prefix&#39;: &#39;cumi&#39;
+  &#39;body&#39;: &#39;cummin(${1:x})&#39;
+&#39;Cummulative max&#39;:
+  &#39;prefix&#39;: &#39;cuma&#39;
+  &#39;body&#39;: &#39;cummax(${1:x})&#39;</code></pre>
+<p>At line 47-52:</p>
+<pre><code>&#39;Grep&#39;:
+  &#39;prefix&#39;: &#39;grep&#39;
+  &#39;body&#39;: &#39;grep(${1:pattern}, ${2:x}, ${3:ignore.case = ${4:FALSE}}, ${5:perl = ${6:FALSE}})&#39;
+&#39;Grep 2&#39;:
+  &#39;prefix&#39;: &#39;grep2&#39;
+  &#39;body&#39;: &#39;grep(${1:pattern}, ${2:x}, ${3:ignore.case = ${4:FALSE}}, ${5:perl = ${6:FALSE}}, ${7:value = ${8:FALSE}}, ${9:fixed = ${10:TRUE}})&#39;</code></pre>
+<p>This way, there is no duplicate keys error anymore.</p>
+<p>The fourth package is the crucial part. The first three packages are there because of aesthetic reasons, and you can live without them. But this fourth package is really the one that will allow us to compile the RMD file. Once you have installed this package, click Atom-Config (on macOS) or Edit-Config (on Ubuntu) and copy paste the following commands into the <code>config.cson</code> file.</p>
+<pre><code>&quot;atom-shell-commands&quot;:
+  commands: [
+    {
+      arguments: [
+        &quot;-e&quot;
+        &quot;rmarkdown::render(&#39;{FileName}&#39;)&quot;
+      ]
+      command: &quot;R&quot;
+      name: &quot;knitRmd&quot;
+      options:
+        cwd: &quot;{FileDir}&quot;
+        keymap: &quot;ctrl-2&quot;
+        save: true
+    }
+  ]</code></pre>
+<p>Note that if you have R installed properly and <code>rmarkdown</code> package installed, this should work fine. The <code>command</code> field you should put the path for the R executables, and if you open up a terminal, type “R” and return and observe you are inside R environment, then you should be fine. Otherwise, change this path to the one that actually works for you. In <code>options</code>, you can also change the “keymap”. The default is “ctrl-2”, but you can change to whatever you like. Just to make sure that there is not conflict with other keymaps.</p>
+<p>Voila! Now you are done!</p>
+<p>You can try to click <code>ctrl-2</code> at your RMD file, and the output should be compiled in the same folder as your RMD file.</p>
 
 
 
