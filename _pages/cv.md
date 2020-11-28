@@ -7,7 +7,7 @@ redirect_from:
   - /resume
 ---
 
-<embed src="https://fangzhou-xie.github.io/files/cv-Xie.pdf" type="application/pdf" />
+<embed src="https://fangzhou-xie.github.io/files/cv-Xie.pdf" width="300" height="600" type="application/pdf" />
 
 <!-- {% include base_path %}
 
