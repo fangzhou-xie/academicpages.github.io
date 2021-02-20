@@ -1,2 +1,4 @@
 _site/
-
+# ignore everything except pdf files in "files" folder
+files/*
+!files/*.pdf
