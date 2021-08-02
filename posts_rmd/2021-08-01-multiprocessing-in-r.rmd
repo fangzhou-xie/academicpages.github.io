@@ -6,7 +6,7 @@ tags:
   - R
   - multiprocessing
 comments: true
-published: false
+published: true
 excerpt: How to use `future.callr` to make your R code faster
 output: html_document
 ---
