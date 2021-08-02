@@ -1,0 +1,54 @@
+---
+title: 'Multiprocessing in R with `future.callr`'
+date: 2021-08-01
+permalink: /posts/2021-08-01-multiprocessing-in-r/
+tags:
+  - R
+  - multiprocessing
+comments: true
+published: false
+excerpt: How to use `future.callr` to make your R code faster
+output: html_document
+---
+
+I learned Python before getting to know R, but I now
+use R more often than Python. When trying to loop
+lots of lots of items for processing, I always wanted
+to just `import multiprocessing as mp`, but I haven't
+found something like that in R until very recently.
+
+If you have some familiarity in R, especially experiences
+of dealing with data, you probably have used the
+`tidyverse` collection, especially how easy to use
+the `map_*` functions in the `purrr` package.
+But do you also know that there is the multiprocessing
+version `furrr` package and its `future_map_*` family
+of function? Basically, every single `map` function
+in `purrr` will have a counterpart in `furrr`.
+
+But I always find the default `future` package
+not as easy to work with as I would like. Until
+I came across `future.callr` package.
+
+Let's have an example.
+
+```{r}
+library(future.callr)
+plan(callr, workers = 10) 
+# choose the number of workers wisely
+
+# first try the serial version
+tictoc::tic()
+purrr::walk(1:10, function(x) Sys.sleep(1))
+tictoc::toc()
+
+# then the multiprocessing via callr
+tictoc::tic()
+furrr::future_walk(1:10, function(x) Sys.sleep(1))
+tictoc::toc()
+```
+
+There are, in fact, some costs when using multiprocessing,
+and this will be compensated if you apply it on many many
+things. You code will run faster, with multiple CPU cores
+carrying out the jobs in the same time.
