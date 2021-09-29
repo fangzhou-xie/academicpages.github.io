@@ -14,9 +14,9 @@ Previously, I did my M.A. at the Department of Economics at New York University.
 
 I am a fan of R/Rcpp/RcppEigen/RcppThread and I am also a developer of R packages. Here is a list of packages I publish and maintain on CRAN:
 
-1. [rethnicity](https://cran.r-project.org/web/packages/rethnicity/index.html), [Github](https://github.com/fangzhou-xie/rethnicity)
-2. [Randomuseragent](https://cran.r-project.org/web/packages/Randomuseragent/index.html), [Github](https://github.com/fangzhou-xie/Randomuseragent)
-3. [xutils](https://cran.r-project.org/web/packages/xutils/index.html), [Github](https://github.com/fangzhou-xie/xutils)
+1. [rethnicity](https://cran.r-project.org/web/packages/rethnicity/index.html): predict ethnicity from names, [Github](https://github.com/fangzhou-xie/rethnicity)
+2. [Randomuseragent](https://cran.r-project.org/web/packages/Randomuseragent/index.html): generate random useragent string, [Github](https://github.com/fangzhou-xie/Randomuseragent)
+3. [xutils](https://cran.r-project.org/web/packages/xutils/index.html): misc personal functions, [Github](https://github.com/fangzhou-xie/xutils)
 
 [//]: # "add news section later"
 
