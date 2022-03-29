@@ -18,7 +18,10 @@ I am a fan of R/Rcpp/RcppEigen/RcppThread and I am also a developer of R package
 2. [Randomuseragent](https://cran.r-project.org/web/packages/Randomuseragent/index.html): generate random useragent string, [Github](https://github.com/fangzhou-xie/Randomuseragent)
 3. [xutils](https://cran.r-project.org/web/packages/xutils/index.html): misc personal functions, [Github](https://github.com/fangzhou-xie/xutils)
 
+Besides, I am also a beginner boulderer (currently V3/V4).
+
 [//]: # "add news section later"
 
-<!-- ------
-**News:**  -->
+**News:** 
+
+[rethnicity](https://cran.r-project.org/web/packages/rethnicity/index.html) (version 0.2.2) now on CRAN!
